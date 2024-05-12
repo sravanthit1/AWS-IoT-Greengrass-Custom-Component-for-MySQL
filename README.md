@@ -1,8 +1,8 @@
-# AWS IoT Greengrass Custom Component for MySQL
+# AWS IoT Greengrass Custom Component for MySQL 🛠️
 
 A custom AWS Greengrass component to periodically fetch data from a MySQL database and publish it to an Amazon S3 bucket.
 
-## Architecture
+## 🏗️ Architecture
 
  ![Architecture](MySQLGGConnector.png)
 
@@ -25,7 +25,7 @@ A custom AWS Greengrass component to periodically fetch data from a MySQL databa
 - Serves as the quintessential endpoint for storing the extracted data.
 - Data publication to the designated S3 bucket ensures unparalleled durability and scalability.
 
-## Prerequisites
+## 🔧Prerequisites
 
 Before starting the implementation, ensure the following prerequisites are met:
 
@@ -38,7 +38,7 @@ Before starting the implementation, ensure the following prerequisites are met:
 4. **Python Environment**: Ensure Python is installed on your system. The Python version should be compatible with the AWS Greengrass Core and SDKs.
 
 
-## Implementation Steps
+## 🛠️Implementation Steps
 
 1. **Database Setup**:
    - Provision a MySQL database instance following industry best practices.
@@ -68,7 +68,7 @@ Before starting the implementation, ensure the following prerequisites are met:
 © [Sravanthi Thukivakam [2024]
 
 
-## References
+## 📚 References
 
 - [AWS Greengrass Documentation](https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html)
 - [MySQL Documentation](https://dev.mysql.com/doc/)
@@ -76,4 +76,6 @@ Before starting the implementation, ensure the following prerequisites are met:
 - [Linux Commands](SravanthiHelloWorld/Linux.md)
 - [MySQL Installation](SravanthiHelloWorld/MySQL.md)
 - [Greengrass Installation](SravanthiHelloWorld/Greengrass.md)
+
+Excited to see how this project enables seamless data synchronization at the edge! Let me know your thoughts and feel free to contribute on GitHub. 🌐💡
 
