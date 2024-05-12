@@ -35,7 +35,7 @@ def fetch_data(connection):
                 except ValueError:
                     logger.warning("Unable to parse date_time: %s", date_time)
                     continue
-            formatted_data.append((date_time, row[2]))  # Assuming other_field is in the third column
+            formatted_data.append((row[0], date_time, row[2], row[3]))  # Assuming other_field is in the third column
         return formatted_data
     except pymysql.Error as e:
         logger.error("Error fetching data from the database: %s", e)
@@ -47,8 +47,10 @@ def convert_to_json(data):
         formatted_data = []
         for item in data:
             formatted_item = {
-                'date_time': item[0].isoformat(),  # Assuming the first element is the datetime
-                'other_field': item[1],  # Adjust this according to your data structure
+                'tag_name': item[0], 
+                'date_time': item[1].isoformat(),  # Assuming the first element is the datetime
+                'value': item[2],  # Adjust this according to your data structure
+                'quality': item[3],  # Adjust this according to your data structure
                 # Add more fields as necessary
             }
             formatted_data.append(formatted_item)
@@ -63,8 +65,8 @@ def upload_to_s3(json_data):
     try:
         # Upload data to S3   
         s3 = boto3.client('s3', 
-                      aws_access_key_id='XXXXXXXXXXXXXXXX', 
-                      aws_secret_access_key='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
+                      aws_access_key_id='XXXX', 
+                      aws_secret_access_key='XXXXXXXXX')
         bucket_name = 'ddi-ggbucket-data'
         timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
         key = f'data_{timestamp}.json'
