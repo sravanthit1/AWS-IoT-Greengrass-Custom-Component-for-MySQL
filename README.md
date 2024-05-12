@@ -1,0 +1,1 @@
+# sravanthit1-AWS-IoT-Greengrass-Custom-Component-for-MySQL
