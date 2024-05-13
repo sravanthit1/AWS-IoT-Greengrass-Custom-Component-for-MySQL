@@ -63,35 +63,39 @@
 
     ```
 
-## Create a Database User
+## Create a New User
 
 1. Create a new database user named 'admin':
     ```sql
-    CREATE USER 'admin'@'localhost' IDENTIFIED BY 'password';
+    CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
     ```
 
 2. Grant all privileges to the 'admin' user:
     ```sql
-    GRANT ALL ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
+    GRANT ALL ON *.* TO 'username'@'localhost' WITH GRANT OPTION;
     ```
 3. To Login to a user:
     ```sql
-    sudo mysql -u user_name;
+    sudo mysql -u username -p;
     ```
 4. To List the Databases:
     ```sql
     SHOW DATABASES;
     ```
-5. To Switch to a Database:
+5. To Create a Databases:
     ```sql
-    USE Db_name;
+    CREATE DATABASE dbname;
     ```
-    To List the Tables:
+6. To Switch to a Database:
+    ```sql
+    USE dbname;
+    ```
+7. To List the Tables:
     ```sql
     SHOW TABLES;
     ```
 
-    ## Create Table
+## Create Table
 
 1. Execute the following SQL command to create the "time_series" table:
     ```sql
