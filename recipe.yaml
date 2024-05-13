@@ -1,0 +1,25 @@
+---
+RecipeFormatVersion: "2020-01-25"
+ComponentName: "{COMPONENT_NAME}"
+ComponentVersion: "{COMPONENT_VERSION}"
+ComponentDescription: "A Greengrass component to fetch data from MySQL and upload it to S3."
+ComponentPublisher: "{COMPONENT_AUTHOR}"
+ComponentConfiguration:
+  DefaultConfiguration:
+    MySQLHost: "localhost"
+    MySQLUser: "admin"
+    MySQLPassword: "password"
+    MySQLDatabase: "tsdb"
+    S3BucketName: "ddi-ggbucket-data"
+Manifests:
+  - Platform:
+      os: all
+    Artifacts:
+      - URI: "s3://BUCKET_NAME/COMPONENT_NAME/COMPONENT_VERSION/SravanthiHelloWorld.zip"
+        Unarchive: ZIP
+    Lifecycle:
+      install: | 
+        pip install pymysql --break-system-packages
+        pip install boto3 --break-system-packages
+      Run: "python3 -u {artifacts:decompressedPath}/SravanthiHelloWorld/main.py {configuration:/MySQLHost} {configuration:/MySQLUser} {configuration:/MySQLPassword} {configuration:/MySQLDatabase} {configuration:/S3BucketName}"
+
