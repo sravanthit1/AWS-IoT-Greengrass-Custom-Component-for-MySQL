@@ -8,7 +8,6 @@ cur_mysql = conn_mysql.cursor()
 
 # Create the table if not exists
 cur_mysql.execute("""CREATE TABLE IF NOT EXISTS time_series (
-                        id INT AUTO_INCREMENT PRIMARY KEY,
                         tag_name VARCHAR(255),
                         date_time DATETIME,
                         value FLOAT,
@@ -18,7 +17,7 @@ conn_mysql.commit()
 
 while True:
     # Inserting records with random data
-    tag_name = "example_tag"
+    tag_name = "temperature"
     date_time = time.strftime('%Y-%m-%d %H:%M:%S')
     value = random.uniform(0, 100)
     quality = bool(random.getrandbits(1))

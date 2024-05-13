@@ -65,16 +65,16 @@ Before starting the implementation, ensure the following prerequisites are met:
 
 ## Copyright
 
-© [Sravanthi Thukivakam [2024]
+© Sravanthi Thukivakam [2024]
 
 
 ## 📚References
 
+- [Greengrass Installation](Greengrass.md)
+- [MySQL Installation](MySQL.md)
+- [Linux Commands](Linux.md)
 - [AWS Greengrass Documentation](https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html)
 - [MySQL Documentation](https://dev.mysql.com/doc/)
 - [Python Documentation](https://docs.python.org/)
-- [Linux Commands](Linux.md)
-- [MySQL Installation](MySQL.md)
-- [Greengrass Installation](Greengrass.md)
 
 Excited to see how this project enables seamless data synchronization at the edge! Let me know your thoughts and feel free to contribute on GitHub. 🌐💡

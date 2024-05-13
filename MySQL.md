@@ -20,6 +20,7 @@
 4. Secure MariaDB installation:
     ```
     sudo mysql_secure_installation
+    Answer the questions appropriately.
     ```
 
 ## Start and Enable the Server
@@ -48,29 +49,18 @@
     sudo mysql -u root -p
     ```
 
-## Create Table
-
-1. Execute the following SQL command to create the "time_series" table:
-    ```sql
-    CREATE TABLE time_series (
-        tag_name VARCHAR(256), 
-        date_time TIMESTAMP, 
-        value DOUBLE, 
-        quality BOOLEAN
-    );
-    ```
-
 ## Install pip
 
 1. Install pip for Python 3:
     ```
-    sudo apt-get install python3-pip
+    sudo apt install python3-pip
     ```
 
-2. Install pip:
+2. Install boto3 and pymsql:
     ```
-    python get-pip.py
-    pip --version
+    pip3 install boto3 --break-system-packages
+    pip3 install pymysql --break-system-packages
+
     ```
 
 ## Create a Database User
@@ -84,19 +74,31 @@
     ```sql
     GRANT ALL ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
     ```
-3. To List the Databases:
+3. To Login to a user:
+    ```sql
+    sudo mysql -u user_name;
+    ```
+4. To List the Databases:
     ```sql
     SHOW DATABASES;
-    ```
-4. To List the Tables:
-    ```sql
-    SHOW TABLES;
     ```
 5. To Switch to a Database:
     ```sql
     USE Db_name;
     ```
-5. To Login to a user:
+    To List the Tables:
     ```sql
-    sudo mysql -u user_name;
+    SHOW TABLES;
+    ```
+
+    ## Create Table
+
+1. Execute the following SQL command to create the "time_series" table:
+    ```sql
+    CREATE TABLE time_series (
+        tag_name VARCHAR(256), 
+        date_time TIMESTAMP, 
+        value DOUBLE, 
+        quality BOOLEAN
+    );
     ```
