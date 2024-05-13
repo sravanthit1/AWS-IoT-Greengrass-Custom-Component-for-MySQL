@@ -21,7 +21,7 @@ def fetch_data(connection):
     try:
         # Fetch data for the last 10 minutes
         query = "SELECT * FROM time_series WHERE date_time >= %s;"
-        start_time = datetime.now() - timedelta(minutes=10)
+        start_time = datetime.now() - timedelta(minutes=1)
         with connection.cursor() as cursor:
             cursor.execute(query, (start_time,))
             rows = cursor.fetchall()
@@ -65,8 +65,8 @@ def upload_to_s3(json_data):
     try:
         # Upload data to S3   
         s3 = boto3.client('s3', 
-                      aws_access_key_id='XXXX', 
-                      aws_secret_access_key='XXXXXXXXX')
+                      aws_access_key_id='XXXXXXXXXX', 
+                      aws_secret_access_key='XXXXXXXXXXXX'
         bucket_name = 'ddi-ggbucket-data'
         timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
         key = f'data_{timestamp}.json'
@@ -95,8 +95,8 @@ def main():
             # Close database connection
             connection.close()
 
-            # Sleep for 10 minutes
-            time.sleep(60)  # Sleep for 10 minutes
+            # Sleep for 1 minute
+            time.sleep(60)  # Sleep for 1 minute
         except Exception as e:
             logger.error("An error occurred: %s", e)
 
